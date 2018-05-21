@@ -5,15 +5,16 @@ const http2 = require('spdy');
 const path = require('path');
 
 const options = {
-    key: fs.readFileSync('./app/demo1/keys/server-key.pem'),
-    cert: fs.readFileSync('./app/demo1/keys/server-cert.pem')
+    key: fs.readFileSync('./app/keys/server-key.pem'),
+    cert: fs.readFileSync('./app/keys/server-cert.pem')
 };
 
 const app = new express();
 http2.createServer(options, app).listen(8080, () => {
-    console.log(`Server is listening on https://localhost:8080. You can open the URL in the browser.`);
+    console.log(`Server is listening on https://localhost:8080 You can open the URL in the browser.`);
 });
-//app.use('/', express.static(path.join(__dirname, './assets')));
+console.log('__dirname:', __dirname);
+app.use('/', express.static(path.join(__dirname, './assets')));
 
 app.get("/", (req, res) => {
     var stream = res.push('/app.js', {   //服务器推送
