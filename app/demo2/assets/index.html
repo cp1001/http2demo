@@ -29,7 +29,7 @@
         // 先加载http2的页面，然后再加载http的页面。在networt选择fast 3g模式看效果
         function loadDeferredIframe() {
             var iframe = document.getElementById("my-deferred-iframe");
-            iframe.src = "http://localhost:8080/h1_demo.html";
+            iframe.src = "http://localhost:8010/h1_demo.html";
         }
     </script>
 </head>
@@ -41,7 +41,7 @@
                 onload=""></iframe>
         </div>
         <div style="width:50%;float:left;display: block;">
-            <iframe src="https://localhost:8081/h2_demo.html" marginheight="0" frameborder="0" scrolling="no" width="100%" height="100%"
+            <iframe src="https://localhost:8011/h2_demo.html" marginheight="0" frameborder="0" scrolling="no" width="100%" height="100%"
                 onload="loadDeferredIframe();"></iframe>
         </div>
     </div>

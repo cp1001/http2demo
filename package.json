@@ -1,7 +1,7 @@
 {
     "name": "http2",
     "version": "1.0.0",
-    "description": "test http2.o",
+    "description": "test http2",
     "main": "app.js",
     "scripts": {
         "demo1": "node app/demo1/index.js",
@@ -15,12 +15,10 @@
         "http2",
         "koa"
     ],
-    "author": "Lucien",
+    "author": "",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/etoah/note/issues"
     },
-    "homepage": "https://github.com/etoah/note#readme",
     "dependencies": {
         "express": "^4.14.0",
         "http2": "^3.3.6",

@@ -10,8 +10,8 @@ const options = {
 };
 
 const app = new express();
-http2.createServer(options, app).listen(8080, () => {
-    console.log(`Server is listening on https://localhost:8080 You can open the URL in the browser.`);
+http2.createServer(options, app).listen(8010, () => {
+    console.log(`Server is listening on https://localhost:8010 You can open the URL in the browser.`);
 });
 console.log('__dirname:', __dirname);
 app.use('/', express.static(path.join(__dirname, './assets')));
