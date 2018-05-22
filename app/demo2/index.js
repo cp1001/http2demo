@@ -3,6 +3,7 @@ var spdy = require('spdy');
 var http = require('http');
 var fs = require('fs');
 const path = require('path');
+const config = require('../config/config');
 
 console.log('__dirname:', __dirname);
 var options = {
@@ -10,17 +11,17 @@ var options = {
     cert: fs.readFileSync('./app/keys/server-cert.pem')
 }
 
-var port = 8010;
-var port2 = 8011;
-
+var port = config.port;
+var port2 = config.http2_port;
+console.log(config);
 const app = new express();
 app.use('/', express.static(path.join(__dirname, 'assets')));
 
 spdy.createServer(options, app).listen(port2, () => {
-    console.log(`http2 Server is listening on https://localhost:8011/`);
+    console.log(`http2 Server is listening on https://${config.host}:${port2}/`);
 });
 http.createServer(app).listen(port, () => {
-    console.log(`http Server is listening on http://localhost:8010/`);
+    console.log(`http Server is listening on http://${config.host}:${port}/`);
 });
 // app.get('/', (req, res) => {
 //     var a = fs.readFileSync('./app/demo2/assets/h2_demo.html', { encoding: 'utf8' });

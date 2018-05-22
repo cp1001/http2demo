@@ -5,7 +5,9 @@
     "main": "app.js",
     "scripts": {
         "demo1": "node app/demo1/index.js",
-        "demo2": "node app/demo2/index.js"
+        "demo2": "node app/demo2/index.js",
+        "demo2:dev": "forever stop app/demo2/index.js & (sleep '1' && export NODE_ENV=development && forever start -a app/demo2/index.js)",
+        "demo2:prod": "forever stop app/demo2/index.js & (sleep '1' && export NODE_ENV=production && forever start -a app/demo2/index.js)"
     },
     "repository": {
         "type": "git",
@@ -17,8 +19,7 @@
     ],
     "author": "",
     "license": "MIT",
-    "bugs": {
-    },
+    "bugs": {},
     "dependencies": {
         "express": "^4.14.0",
         "http2": "^3.3.6",
